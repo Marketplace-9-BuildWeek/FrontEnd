@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+.navhide {
+  display: none;
+}
+
+.navshow {
+  display: show;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed;
+  top: 0;
+  width: 100%; */
+}
+
+h1,
+nav {
+  display: inline;
+}
+nav a {
+  font-size: 1.8em;
+  text-decoration: none;
+  color: white;
+}
+nav {
+  margin-right: 3%;
+}
+h1 {
+  margin-left: 1%;
+}
+a {
+  padding: 0 5.5%;
+}
+
+.active {
+  background-color: red;
+  color: white;
+}

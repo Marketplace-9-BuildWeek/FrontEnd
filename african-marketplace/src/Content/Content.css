@@ -1,0 +1,14 @@
+.box {
+  width: 15%;
+  height: 185px;
+  background-color: black;
+  display: inline-block;
+  margin: 2.5%;
+  opacity: 0.9;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+/* .box-container {
+  display: inline;
+} */
