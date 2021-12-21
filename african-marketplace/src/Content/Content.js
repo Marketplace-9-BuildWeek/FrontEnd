@@ -1,30 +1,33 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import "./Content.css";
+import Item from "../Item/Item";
 
-const Content = () => {
+const Content = (props) => {
+  // const { items } = props;
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    setItems(props.items);
+  }, []);
+
   return (
-    <div className="box-container">
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-      <div className="box"></div>
-    </div>
+    <>
+      {items.map((item) => {
+        return (
+          <div key={item.listing_id} className="box">
+            <Item
+              listing_id={item.listing_id}
+              name={item.name}
+              item={item}
+              location_id={item.location_id}
+              price={item.price}
+              description={item.description}
+            />
+          </div>
+        );
+      })}
+    </>
   );
 };
 
