@@ -1,5 +1,5 @@
 .box {
-  width: 15%;
+  width: 20%;
   height: 185px;
   background-color: black;
   display: inline-block;
@@ -7,8 +7,17 @@
   opacity: 0.9;
   border-radius: 5px;
   border: 1px solid white;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
 }
-
+.wrapper {
+  padding: 200px;
+  height: 880px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
 /* .box-container {
   display: inline;
 } */
