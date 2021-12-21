@@ -12,7 +12,7 @@ const Content = (props) => {
   }, []);
 
   return (
-    <>
+    <div className="wrapper">
       {items.map((item) => {
         return (
           <div key={item.listing_id} className="box">
@@ -27,7 +27,7 @@ const Content = (props) => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
