@@ -11,12 +11,29 @@
 }
 
 .header-container {
+  z-index: 10000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: relative;
   /* position: fixed;
   top: 0;
   width: 100%; */
+}
+#background-color-container {
+  pointer-events: none;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.7;
 }
 
 h1,
@@ -30,15 +47,18 @@ nav a {
 }
 nav {
   margin-right: 3%;
+  padding-right: 30px;
 }
 h1 {
   margin-left: 1%;
 }
 a {
-  padding: 0 5.5%;
+  padding: 10px 7.5%;
+  border-radius: 4px;
+  margin-left: 15px;
 }
 
 .active {
-  background-color: red;
+  background-color: #69db7c;
   color: white;
 }
