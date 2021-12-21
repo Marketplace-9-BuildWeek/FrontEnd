@@ -1,10 +1,24 @@
 import React from "react";
 import "./LogInPage.css";
+import axios from "axios";
 
 const LogInPage = () => {
   const changeHandler = () => {};
 
-  const submitHandler = () => {};
+  const submitHandler = (ev) => {
+    ev.preventDefault();
+    console.log(ev);
+    // const obj = { username: uname, password: pword };
+    axios
+      .post("https://buildweek-marketplace.herokuapp.com/auth/login", {
+        username: "test",
+        password: "test",
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   return (
     <div
       className="form"
