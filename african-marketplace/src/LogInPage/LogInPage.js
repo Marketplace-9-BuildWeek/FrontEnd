@@ -1,10 +1,36 @@
+<<<<<<< HEAD
+import React, { useState } from "react";
+import axios from 'axios';
+=======
 import React from "react";
 import "./LogInPage.css";
+>>>>>>> 31f0044d86ef2e17818b0c7774bba45dd9ca49c1
 
 const LogInPage = () => {
-  const changeHandler = () => {};
+  //Initial Login Values
+  const [ credentials, setCredentials ] = useState({
+    username: '',
+    password: ''
+  });
 
-  const submitHandler = () => {};
+  const changeHandler = (e) => {
+    setCredentials({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post('', credentials)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })    
+  };
+
   return (
     <div
       className="form"
