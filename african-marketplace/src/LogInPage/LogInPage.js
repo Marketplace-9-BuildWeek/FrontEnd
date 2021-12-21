@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios';
 
 const LogInPage = () => {
-  const changeHandler = () => {};
+  //Initial Login Values
+  const [ credentials, setCredentials ] = useState({
+    username: '',
+    password: ''
+  });
 
-  const submitHandler = () => {};
+  const changeHandler = (e) => {
+    setCredentials({
+      [e.target.name]: e.target.value
+    });
+  };
+
+  
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.post('', credentials)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })    
+  };
+
   return (
     <div>
       <h1>ADD FORM HERE</h1>
