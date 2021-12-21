@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import "./LogInPage.css";
 
-const LogInPage = () => {
-  //Initial Login Values
+
+const SignUpPage = () => {
+  //Initial Sign Up Values
   const [ credentials, setCredentials ] = useState({
     username: '',
     password: ''
@@ -11,14 +11,16 @@ const LogInPage = () => {
 
   const changeHandler = (e) => {
     setCredentials({
-      [e.target.name]: e.target.value
+        ...credentials,
+        [e.target.name]: e.target.value
     });
   };
 
   
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post('', credentials)
+    console.log('here it is', credentials)
+    axios.post('https://buildweek-marketplace.herokuapp.com/auth/register', credentials)
       .then(res => {
         console.log(res)
       })
@@ -55,7 +57,7 @@ const LogInPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1>✨&nbsp;&nbsp;&nbsp;LOG IN HERE&nbsp;&nbsp;&nbsp;✨</h1>
+        <h1>✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨</h1>
         <form id="login-form" onSubmit={submitHandler}>
           <div style={{ display: "flex" }}>
             <label>
@@ -98,7 +100,7 @@ const LogInPage = () => {
               }}
               type="submit"
             >
-              Log In!
+              Sign up!
             </button>
           </label>
         </form>
@@ -107,4 +109,4 @@ const LogInPage = () => {
   );
 };
 
-export default LogInPage;
+export default SignUpPage;

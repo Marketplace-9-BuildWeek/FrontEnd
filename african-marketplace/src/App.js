@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import Content from "./Content/Content";
 import LogInPage from "./LogInPage/LogInPage";
 import AddItem from "./AddItem/AddItem";
+import SignUpPage from "./SignUpPage/SignUpPage";
 
 const initialData = [
   {
@@ -92,6 +93,9 @@ function App() {
           </Route>
           <Route exact path="/login">
             <LogInPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignUpPage />
           </Route>
           <Route exact path="/items">
             <AddItem />
