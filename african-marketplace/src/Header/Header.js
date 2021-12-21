@@ -12,8 +12,11 @@ const Header = () => {
           <NavLink activeClassName="active" to="/" exact={true}>
             Home
           </NavLink>
+          <NavLink activeClassName="active" to="/signup" exact={true}>
+            Sign Up
+          </NavLink>
           <NavLink activeClassName="active" to="/login" exact={true}>
-            LogIn
+            Log In
           </NavLink>
           <NavLink
             activeClassName="active"

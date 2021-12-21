@@ -38,7 +38,8 @@
 
 h1,
 nav {
-  display: inline;
+  display: flex;
+  flex-direction: row;
 }
 nav a {
   font-size: 1.8em;
