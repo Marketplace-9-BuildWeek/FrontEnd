@@ -6,13 +6,15 @@ const Item = (props) => {
   //   console.log(props);
 
   return (
-    <ul>
-      <li>{name}</li>
-      <li>{description}</li>
-      <li>{category}</li>
-      <li>{price}</li>
-      <li>{location_id}</li>
-    </ul>
+    <div>
+      <h3 style={{ fontSize: "22px", marginBottom: "10px", color: "white" }}>
+        {name}
+      </h3>
+      <div>{description}</div>
+      <div>{category}</div>
+      <div>{price}</div>
+      <div>{location_id}</div>
+    </div>
   );
 };
 export default Item;

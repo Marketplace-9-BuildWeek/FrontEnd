@@ -17,12 +17,13 @@ const Content = (props) => {
         return (
           <div key={item.listing_id} className="box">
             <Item
-              listing_id={item.listing_id}
-              name={item.name}
-              item={item}
-              location_id={item.location_id}
-              price={item.price}
-              description={item.description}
+              {...item}
+              // listing_id={item.listing_id}
+              // name={item.name}
+              // category={item.category}
+              // location_id={item.location_id}
+              // price={item.price}
+              // description={item.description}
             />
           </div>
         );
