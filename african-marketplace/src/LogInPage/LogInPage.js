@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./LogInPage.css";
+import { useHistory } from "react-router-dom";
 
 const LogInPage = () => {
   //Initial Login Values
@@ -9,8 +10,13 @@ const LogInPage = () => {
     password: ''
   });
 
+  const [ message, setMessage ] = useState('');
+
+  const { push } = useHistory();
+
   const changeHandler = (e) => {
     setCredentials({
+      ...credentials,
       [e.target.name]: e.target.value
     });
   };
@@ -18,9 +24,15 @@ const LogInPage = () => {
   
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post('', credentials)
+
+    axios.post('https://marketplace-2.herokuapp.com/auth/login', credentials)
       .then(res => {
         console.log(res)
+        const { token, message } = res.data;
+        localStorage.setItem('token', token);
+        localStorage.setItem('username', credentials.username)
+        setMessage(`${message}!`)
+        setTimeout(() => {push('/')}, 1000)
       })
       .catch(err => {
         console.log(err)
@@ -102,6 +114,7 @@ const LogInPage = () => {
             </button>
           </label>
         </form>
+        <h2>{message}</h2>
       </div>
     </div>
   );
