@@ -42,7 +42,7 @@ const AddItem = () => {
               ))}
             </Form.Select>
             <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control type="text" placeholder="Enter Product name" />
             </Form.Group>
 
@@ -58,7 +58,7 @@ const AddItem = () => {
           </Col>
           <Col md>
             <Form.Group controlId="formDescription">
-              <Form.Label>Description</Form.Label>
+              <Form.Label></Form.Label>
               <Form.Control type="text" placeholder="Enter description" />
             </Form.Group>
           </Col>

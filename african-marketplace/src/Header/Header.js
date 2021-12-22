@@ -9,15 +9,23 @@ const Header = () => {
         <div id="background-color-container" />
         <h1>AFRICAN MARKETPLACE </h1>
         <nav>
-          <NavLink activeClassName="active" to="/" exact={true}>
+          <NavLink
+            activeClassName="active"
+            to="/"
+            exact={true}
+            style={{ padding: "5%" }}
+          >
             Home
           </NavLink>
+          <NavLink activeClassName="active" to="/signup" exact={true}>
+            Sign Up
+          </NavLink>
           <NavLink activeClassName="active" to="/login" exact={true}>
-            LogIn
+            Log In
           </NavLink>
           <NavLink
             activeClassName="active"
-            className="navhide"
+            className=""
             to="/items"
             exact={true}
           >

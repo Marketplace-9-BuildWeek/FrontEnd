@@ -3,7 +3,7 @@
 }
 
 .navhide {
-  display: none;
+  visibility: hidden;
 }
 
 .navshow {
@@ -38,7 +38,8 @@
 
 h1,
 nav {
-  display: inline;
+  display: flex;
+  flex-direction: row;
 }
 nav a {
   font-size: 1.8em;
@@ -46,7 +47,7 @@ nav a {
   color: white;
 }
 nav {
-  margin-right: 3%;
+  margin-right: 6%;
   padding-right: 30px;
 }
 h1 {

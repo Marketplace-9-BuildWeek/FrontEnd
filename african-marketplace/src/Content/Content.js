@@ -24,6 +24,7 @@ const Content = (props) => {
           <div key={item.listing_id} className="box">
             <Item
               {...item}
+
               // listing_id={item.listing_id}
               // name={item.name}
               // category={item.category}

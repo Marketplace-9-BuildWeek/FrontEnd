@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./LogInPage.css";
+import "./SignUpPage.css";
 
-const LogInPage = () => {
-  //Initial Login Values
+const SignUpPage = () => {
+  //Initial Sign Up Values
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
-  const [logInToken, setLogInToken] = useState("");
 
   const changeHandler = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const submitHandler = (ev) => {
-    ev.preventDefault();
-    console.log(`testing here`, credentials);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("here it is", credentials);
     axios
-      .post("https://marketplace-2.herokuapp.com/auth/login", credentials)
+      .post("https://marketplace-2.herokuapp.com/auth/register", credentials)
       .then((res) => {
         console.log(res);
-        console.log(res.data.token);
-        setLogInToken([res.data.token, ...logInToken]);
       })
       .catch((err) => {
-        console.error(err);
+        console.log(err);
       });
   };
 
@@ -57,11 +57,8 @@ const LogInPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1
-          className="login
-        "
-        >
-          ✨&nbsp;&nbsp;&nbsp;LOG IN HERE&nbsp;&nbsp;&nbsp;✨
+        <h1 className="signup">
+          ✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨
         </h1>
         <form id="login-form" onSubmit={submitHandler}>
           <div style={{ display: "flex" }}>
@@ -105,7 +102,7 @@ const LogInPage = () => {
               }}
               type="submit"
             >
-              Log In!
+              Sign up!
             </button>
           </label>
         </form>
@@ -114,4 +111,4 @@ const LogInPage = () => {
   );
 };
 
-export default LogInPage;
+export default SignUpPage;
