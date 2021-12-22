@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 
 const SignUpPage = () => {
@@ -8,6 +9,10 @@ const SignUpPage = () => {
     username: '',
     password: ''
   });
+
+  const [ message, setMessage ] = useState('')
+
+  const { push } = useHistory();
 
   const changeHandler = (e) => {
     setCredentials({
@@ -20,9 +25,11 @@ const SignUpPage = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log('here it is', credentials)
-    axios.post('https://buildweek-marketplace.herokuapp.com/auth/register', credentials)
+    axios.post('https://marketplace-2.herokuapp.com/auth/register', credentials)
       .then(res => {
         console.log(res)
+        setMessage(res.data.message)
+        setTimeout(() => {push('/login')}, 1000)
       })
       .catch(err => {
         console.log(err)
@@ -104,6 +111,7 @@ const SignUpPage = () => {
             </button>
           </label>
         </form>
+        <h2>{message}</h2>
       </div>
     </div>
   );
