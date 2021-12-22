@@ -3,6 +3,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import CurrencyInput from "react-currency-input-field";
 import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap";
 import "./AddItem.css";
 import { Row, Col } from "react-bootstrap";
 
@@ -35,7 +36,10 @@ const AddItem = () => {
       <Form>
         <Row className="g-2">
           <Col md>
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              style={{ width: "20%", padding: "7px" }}
+              aria-label="Default select example"
+            >
               <option>Choose Location</option>
               {initialLocations.map((element, index) => (
                 <option key={index}>{element.location_name}</option>
@@ -63,6 +67,9 @@ const AddItem = () => {
             </Form.Group>
           </Col>
         </Row>
+        <Button style={{ width: "100px" }} type="submit">
+          Add Item
+        </Button>{" "}
       </Form>
     </Container>
   );

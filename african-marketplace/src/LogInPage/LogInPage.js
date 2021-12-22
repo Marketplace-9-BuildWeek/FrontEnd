@@ -8,7 +8,6 @@ const LogInPage = () => {
     username: "",
     password: "",
   });
-  const [logInToken, setLogInToken] = useState("");
 
   const changeHandler = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -21,8 +20,6 @@ const LogInPage = () => {
       .post("https://marketplace-2.herokuapp.com/auth/login", credentials)
       .then((res) => {
         console.log(res);
-        console.log(res.data.token);
-        setLogInToken([res.data.token, ...logInToken]);
       })
       .catch((err) => {
         console.error(err);
