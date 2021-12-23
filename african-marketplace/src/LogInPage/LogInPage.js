@@ -69,10 +69,7 @@ const LogInPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1
-          className="login
-        "
-        >
+        <h1 className="login">
           ✨&nbsp;&nbsp;&nbsp;LOG IN HERE&nbsp;&nbsp;&nbsp;✨
         </h1>
         <form id="login-form" onSubmit={submitHandler}>

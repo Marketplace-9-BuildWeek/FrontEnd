@@ -61,7 +61,7 @@ const AddItem = () => {
         return true;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         setFormError({ ...formError, [name]: err.errors[0] });
         return false;
       });
@@ -69,31 +69,31 @@ const AddItem = () => {
 
   const changeHandler = (ev) => {
     //This one is a whole lot easier, trust me
-    setFormState({
-      ...formState,
-      [ev.target.name]: ev.target.value,
-    });
+    // setFormState({
+    //   ...formState,
+    //   [ev.target.name]: ev.target.value,
+    // });
 
     // console.log(`change handler!`, ev.target.value);
-    // const name = ev.target.name;
-    // let value =
-    //   ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
-    // if (name === "location_id") {
-    //   value = value === "Choose Location" ? undefined : parseInt(value, 10);
-    // }
-    // if (name === "price") {
-    //   value =
-    //     typeof value === "string" && value.startsWith("$")
-    //       ? value.replace("$", "")
-    //       : value;
-    //   if (value === "") {
-    //     value = undefined;
-    //   }
-    // }
-    // setFormState({ ...formState, [ev.target.name]: value });
-    // validate(ev.target.name, value).then((valid) => {
-    //   console.log(`valid? ${valid}`);
-    // });
+    const name = ev.target.name;
+    let value =
+      ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
+    if (name === "location_id") {
+      value = value === "Choose Location" ? undefined : parseInt(value, 10);
+    }
+    if (name === "price") {
+      value =
+        typeof value === "string" && value.startsWith("$")
+          ? value.replace("$", "")
+          : value;
+      if (value === "") {
+        value = undefined;
+      }
+    }
+    setFormState({ ...formState, [ev.target.name]: value });
+    validate(ev.target.name, value).then((valid) => {
+      // console.log(`valid? ${valid}`);
+    });
   };
   const hasFormError = async (formError) => {
     for (const name in formError) {
@@ -106,9 +106,7 @@ const AddItem = () => {
   };
   const submitHandler = async (event) => {
     event.preventDefault();
-    // if (await hasFormError(formError)) {
-    //   return;
-    // }
+
     axios
       .post("https://marketplace-2.herokuapp.com/listings/create", formState, {
         headers: { authorization: window.localStorage.getItem("token") },
@@ -161,10 +159,6 @@ const AddItem = () => {
               <Form.Label></Form.Label>
               <Form.Control
                 className="error"
-                // style={{
-                //   backgroundColor: "rgb(96, 0, 0)",
-                //   border: "3px solid red",
-                // }}
                 type="text"
                 name="name"
                 placeholder="Enter Product name"

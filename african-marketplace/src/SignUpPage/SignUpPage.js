@@ -3,7 +3,6 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 
 const SignUpPage = () => {
-  console.log("render SignUp");
   //Initial Sign Up Values
   const [credentials, setCredentials] = useState({
     username: "",
@@ -66,7 +65,7 @@ const SignUpPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1 style={{ marginLeft: "20%" }} className="signup">
+        <h1 className="signup">
           ✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨
         </h1>
         <form id="login-form" onSubmit={submitHandler}>

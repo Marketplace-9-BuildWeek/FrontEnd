@@ -18,5 +18,6 @@ button {
   border-color: 2px solid black;
 }
 .login {
-  margin-left: 20%;
+  /* margin-left: 20%; */
+  text-align: center;
 }
