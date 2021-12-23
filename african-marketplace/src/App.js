@@ -12,10 +12,8 @@ import SignUpPage from "./SignUpPage/SignUpPage";
 import initialData from "./data";
 import PrivateRoute from "./utils/PrivateRoute";
 
-
-
 function App() {
-  console.log("render App");
+  // console.log("render App");
   // const [itemData, setItemData] = useState([]);
 
   // const getItem = () => {
@@ -31,8 +29,6 @@ function App() {
   // };
   // useEffect(() => getItem(), []);
 
-  
-
   return (
     <div className="App">
       <Switch>
@@ -46,7 +42,7 @@ function App() {
           <Route exact path="/signup">
             <SignUpPage />
           </Route>
-          <PrivateRoute exact path="/items"component={AddItem} />
+          <PrivateRoute exact path="/items" component={AddItem} />
         </Layout>
       </Switch>
     </div>
