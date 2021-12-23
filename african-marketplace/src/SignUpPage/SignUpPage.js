@@ -1,39 +1,41 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-
 const SignUpPage = () => {
+  console.log("render SignUp");
   //Initial Sign Up Values
-  const [ credentials, setCredentials ] = useState({
-    username: '',
-    password: ''
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
   });
 
-  const [ message, setMessage ] = useState('')
+  const [message, setMessage] = useState("");
 
   const { push } = useHistory();
 
   const changeHandler = (e) => {
     setCredentials({
-        ...credentials,
-        [e.target.name]: e.target.value
+      ...credentials,
+      [e.target.name]: e.target.value,
     });
   };
 
-  
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('here it is', credentials)
-    axios.post('https://marketplace-2.herokuapp.com/auth/register', credentials)
-      .then(res => {
-        console.log(res)
-        setMessage(res.data.message)
-        setTimeout(() => {push('/login')}, 1000)
+    console.log("here it is", credentials);
+    axios
+      .post("https://marketplace-2.herokuapp.com/auth/register", credentials)
+      .then((res) => {
+        console.log(res);
+        setMessage(res.data.message);
+        setTimeout(() => {
+          push("/login");
+        }, 1000);
       })
-      .catch(err => {
-        console.log(err)
-      })    
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -64,7 +66,9 @@ const SignUpPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1>✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨</h1>
+        <h1 style={{ marginLeft: "20%" }} className="signup">
+          ✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨
+        </h1>
         <form id="login-form" onSubmit={submitHandler}>
           <div style={{ display: "flex" }}>
             <label>

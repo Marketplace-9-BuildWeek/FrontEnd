@@ -69,7 +69,8 @@ const initialData = [
   },
 ];
 function App() {
-  const [itemData, setItemData] = useState(initialData);
+  console.log("render App");
+  // const [itemData, setItemData] = useState([]);
 
   // const getItem = () => {
   //   axios
@@ -91,7 +92,7 @@ function App() {
       <Switch>
         <Layout>
           <Route exact path="/">
-            <Content items={itemData} />
+            <Content />
           </Route>
           <Route exact path="/login">
             <LogInPage />
