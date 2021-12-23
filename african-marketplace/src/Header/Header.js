@@ -1,16 +1,23 @@
 import "./Header.css";
 import React from "react";
-import { Route, Link, NavLink } from "react-router-dom";
+import { Route, Link, NavLink, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 
 
 
 const Header = () => {
+
+  const { params } = useParams();
   
   const handleClick = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('username')
-    console.log('clicked')
-}
+  }
+  
+  let token = localStorage.getItem('token')
+  token = !token ? '/' : '/login'
+
   return (
     <>
       <div className="header-container">
@@ -31,7 +38,7 @@ const Header = () => {
           <NavLink activeClassName="active" to="/login" exact={true}>
             Log In
           </NavLink>
-          <NavLink onClick={handleClick} activeClassName="active" to="/" exact={true}>
+          <NavLink onClick={handleClick} activeClassName="active" to={token} exact={true}>
             Log Out
           </NavLink>
           <NavLink
