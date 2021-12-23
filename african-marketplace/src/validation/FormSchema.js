@@ -25,7 +25,7 @@ const FormSchema = yup.object().shape({
     .number()
     .nullable()
     .required("Location is required")
-    .min(0, "Value must be 1 through 6")
+    .min(1, "Value must be 1 through 6")
     .max(6, "Value must be 1 through 6"),
 });
 

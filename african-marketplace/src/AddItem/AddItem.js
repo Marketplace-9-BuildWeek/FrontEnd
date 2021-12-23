@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axiosWithAuth from "../utils/axiosWithAuth";
+import React, { useState } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
 import CurrencyInput from "react-currency-input-field";
@@ -145,7 +144,7 @@ const AddItem = () => {
               >
                 <option>Choose Location</option>
                 {location.map((element, index) => (
-                  <option value={index} key={index}>
+                  <option value={element.location_id} key={index}>
                     {element.location_name}
                   </option>
                 ))}
