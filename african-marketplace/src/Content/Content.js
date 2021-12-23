@@ -6,7 +6,7 @@ import Item from "../Item/Item";
 const Content = (props) => {
   // const { items } = props;
   const [items, setItems] = useState([]);
-
+  console.log(props)
   useEffect(() => {
     setItems(props.items);
   }, []);
