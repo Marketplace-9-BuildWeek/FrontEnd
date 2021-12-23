@@ -69,26 +69,33 @@ const AddItem = () => {
   };
 
   const changeHandler = (ev) => {
-    console.log(`change handler!`, ev.target.value);
-    const name = ev.target.name;
-    let value =
-      ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
-    if (name === "location_id") {
-      value = value === "Choose Location" ? undefined : parseInt(value, 10);
-    }
-    if (name === "price") {
-      value =
-        typeof value === "string" && value.startsWith("$")
-          ? value.replace("$", "")
-          : value;
-      if (value === "") {
-        value = undefined;
-      }
-    }
-    setFormState({ ...formState, [ev.target.name]: value });
-    validate(ev.target.name, value).then((valid) => {
-      console.log(`valid? ${valid}`);
-    });
+    
+    //This one is a whole lot easier, trust me
+    setFormState({
+      ...formState,
+      [ev.target.name]: ev.target.value
+    })
+
+    // console.log(`change handler!`, ev.target.value);
+    // const name = ev.target.name;
+    // let value =
+    //   ev.target.type === "checkbox" ? ev.target.checked : ev.target.value;
+    // if (name === "location_id") {
+    //   value = value === "Choose Location" ? undefined : parseInt(value, 10);
+    // }
+    // if (name === "price") {
+    //   value =
+    //     typeof value === "string" && value.startsWith("$")
+    //       ? value.replace("$", "")
+    //       : value;
+    //   if (value === "") {
+    //     value = undefined;
+    //   }
+    // }
+    // setFormState({ ...formState, [ev.target.name]: value });
+    // validate(ev.target.name, value).then((valid) => {
+    //   console.log(`valid? ${valid}`);
+    // });
   };
   const hasFormError = async (formError) => {
     for (const name in formError) {
@@ -113,7 +120,8 @@ const AddItem = () => {
         setFormState(res);
       })
       .catch((err) => {
-        console.error(err);
+        console.log(formState, err);
+        
       });
   };
 
@@ -145,7 +153,8 @@ const AddItem = () => {
               >
                 <option>Choose Location</option>
                 {location.map((element, index) => (
-                  <option value={index} key={index}>
+                  //Added a plus one because the initial index is 0
+                  <option value={index + 1} key={index}>
                     {element.location_name}
                   </option>
                 ))}
