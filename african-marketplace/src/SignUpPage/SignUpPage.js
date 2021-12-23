@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SignUpPage.css";
+import { useHistory } from "react-router-dom";
 
 const SignUpPage = () => {
+  console.log("render SignUp");
   //Initial Sign Up Values
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+
+  const [message, setMessage] = useState("");
+
+  const { push } = useHistory();
 
   const changeHandler = (e) => {
     setCredentials({
@@ -23,6 +28,10 @@ const SignUpPage = () => {
       .post("https://marketplace-2.herokuapp.com/auth/register", credentials)
       .then((res) => {
         console.log(res);
+        setMessage(res.data.message);
+        setTimeout(() => {
+          push("/login");
+        }, 1000);
       })
       .catch((err) => {
         console.log(err);
@@ -57,7 +66,7 @@ const SignUpPage = () => {
           flexDirection: "column",
         }}
       >
-        <h1 className="signup">
+        <h1 style={{ marginLeft: "20%" }} className="signup">
           ✨&nbsp;&nbsp;&nbsp;SIGN UP HERE&nbsp;&nbsp;&nbsp;✨
         </h1>
         <form id="login-form" onSubmit={submitHandler}>
@@ -106,6 +115,7 @@ const SignUpPage = () => {
             </button>
           </label>
         </form>
+        <h2>{message}</h2>
       </div>
     </div>
   );
