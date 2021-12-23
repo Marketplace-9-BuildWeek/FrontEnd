@@ -11,6 +11,7 @@ const Content = (props) => {
     setItems(props.items);
   }, []);
 
+  if (localStorage.getItem('token')) {
   return (
     <div className="wrapper">
       {items.map((item) => {
@@ -30,6 +31,12 @@ const Content = (props) => {
       })}
     </div>
   );
+} else {
+  return(
+    <h2>Please Log In</h2>
+  )
+}
 };
+
 
 export default Content;

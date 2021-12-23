@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
         headers: {
             authorization: token
         },
-        baseURL: ''
+        baseURL: 'https://marketplace-2.herokuapp.com/'
     })
 }
 
