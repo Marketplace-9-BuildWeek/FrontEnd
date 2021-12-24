@@ -7,26 +7,23 @@ import Item from "../Item/Item";
 const Content = () => {
   // const { items } = props;
   const [items, setItems] = useState([]);
-  
 
   //I removed this token variable below because it didn't update when the token was removed, which caused the log out button to not function.
   const [returnToken] = useState(localStorage.getItem("token"));
   // const returnToken = localStorage.getItem("token");
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem("token")) {
       axiosWithAuth()
-      .get("/listings")
-      .then((res) => {
-        console.log(res);
-        setItems(res.data);
-      });
+        .get("/listings")
+        .then((res) => {
+          console.log(res);
+          setItems(res.data);
+        });
     }
   }, []);
 
-
-
-  if (localStorage.getItem('token')) {
+  if (localStorage.getItem("token")) {
     return (
       <div className="wrapper">
         {items.map((item) => {
@@ -48,9 +45,23 @@ const Content = () => {
       </div>
     );
   } else {
-    return <h2>Please Log In!</h2>;
+    return (
+      <div
+        style={{ padding: "21%", display: "flex", justifyContent: "center" }}
+      >
+        <h2
+          style={{
+            backgroundColor: "rgba(0,0,0,0.5)",
+            width: "25%",
+            fontSize: "30px",
+            borderRadius: "6px",
+          }}
+        >
+          Please Log In!
+        </h2>
+      </div>
+    );
   }
 };
-
 
 export default Content;

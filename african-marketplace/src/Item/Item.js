@@ -12,7 +12,10 @@ const Item = (props) => {
       </h3>
       <div>{description}</div>
       <div>{category}</div>
-      <div>{price}</div>
+      <div>
+        Price:
+        {price}
+      </div>
       <div>{location_id}</div>
     </div>
   );
